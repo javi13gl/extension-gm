@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GM</title>
+  <style>
+    :root {
+      --color-oliva: #808000;
+      --color-crema: #f5f5dc;
+      --color-oliva-oscuro: #556B2F;
+    }
+    body {
+      width: 240px;
+      height: 160px;
+      margin: 0;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, var(--color-crema), #ffffff);
+      color: var(--color-oliva);
+      border: 3px solid var(--color-oliva-oscuro);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+    }
+    .lang-switch button {
+      margin-left: 4px;
+      padding: 4px 6px;
+      background: none;
+      border: 1px solid var(--color-oliva);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8em;
+      color: var(--color-oliva);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    .lang-switch button.active {
+      background-color: var(--color-oliva);
+      color: var(--color-crema);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.4em;
+      text-align: center;
+      font-weight: normal;
+    }
+    #dayBtn {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background-color: var(--color-oliva);
+      color: var(--color-crema);
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    #dayBtn:hover {
+      opacity: 0.8;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #dayText {
+      margin: 10px 0 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button id="btnEn">EN</button>
+    <button id="btnNs">NS</button>
+  </div>
+  <h1 id="greeting">Good morning 🌞</h1>
+  <button id="dayBtn">Today is…</button>
+  <p id="dayText" hidden></p>
+  <script src="popup.js"></script>
+</body>
+</html>
